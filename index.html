@@ -1,23 +1,51 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Vue</title>
-        
+        <title>Vue CRUD PHP+MySql</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
-        aaaaaa
-        <div id="app">
-            {{ message }}
-          </div>
+        <div id="root">
+            <div class="container">
+                <h1 class="fleft">List Of Users</h1>
+                <button class="fright addNew" v-on:click="showAddModal=true;">Add New</button>
+                <div class="clear"></div>
+                <hr>
+                <table class="list">
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>aaaaaa</td>
+                        <td>bbbbbb</td>
+                        <td>dddddd</td>
+                        <td><button>Edit</button></td>
+                        <td><button>Delete</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!--=============Modal=============-->
+        <div class="modal" id="addModal" v-if="showAddModal">
+            <div class="modalContainer">
+                <div class="modalHeader">
+                    Add New User
+                    <button class="fright close" v-on:click="showAddModal=false;">X</button>
+                </div>
+                <div class="modalContent">
+                    Content
+                </div>
+            </div>
+        </div>
 
     <script src="js/vue.js"></script>
-    <script>
-          var app = new Vue({
-            el: '#app',
-            data: {
-            message: 'Hello Vue!'
-            }
-        })
-    </script>
+    <script src="js/app.js"></script>
     </body>
 </html>
