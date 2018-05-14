@@ -25,14 +25,14 @@
                         <td>aaaaaa</td>
                         <td>bbbbbb</td>
                         <td>dddddd</td>
-                        <td><button>Edit</button></td>
-                        <td><button>Delete</button></td>
+                        <td><button @click="showEditModal=true;">Edit</button></td>
+                        <td><button @click="showDeleteModal=true;">Delete</button></td>
                     </tr>
                 </table>
             </div>
         
 
-                <!--=============Modal=============-->
+                <!--=============Modal Add=============-->
                 <div class="modal" id="addModal" v-if="showAddModal">
                     <div class="modalContainer">
                         <div class="modalHeader">
@@ -61,12 +61,70 @@
                                 <tr>
                                         <th></th>
                                         <th></th>
-                                        <td><button>Submit</button></td>
+                                        <td><button @click="showAddModal=false;">Save</button></td>
                                 </tr>
                             </table>
                         </div>
                     </div>
                 </div>
+                <!--=============End Modal Add=============-->
+
+                <!--=============Modal Edit=============-->
+                <div class="modal" id="editModal" v-if="showEditModal">
+                        <div class="modalContainer">
+                            <div class="modalHeader">
+                                Edit User
+                                <button class="fright close" @click="showEditModal=false;">X</button>
+                            </div>
+                            <div class="modalContent">
+                                <table class="form">
+                                    <tr>
+                                        <th>Username</th>
+                                        <th> : </th>
+                                        <td><input type="text" name=""></td>
+                                    </tr>
+    
+                                    <tr>
+                                            <th>Email</th>
+                                            <th> : </th>
+                                            <td><input type="text" name=""></td>
+                                    </tr>
+    
+                                    <tr>
+                                            <th>Mobile</th>
+                                            <th> : </th>
+                                            <td><input type="text" name=""></td>
+                                    </tr>
+                                    <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <td><button @click="showEditModal=false;">Update</button></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!--=============End Modal Edit=============-->
+
+                    <!--=============Modal Delete=============-->
+                    <div class="modal" id="deleteModal" v-if="showDeleteModal">
+                        <div class="modalContainer">
+                            <div class="modalHeader">
+                                Delete User
+                                <button class="fright close" @click="showDeleteModal=false;">X</button>
+                            </div>
+                            <div class="modalContent">
+                                <p>
+                                    You are going to delete...
+                                </p>
+                                <br><br><br><br>
+                                <button @click="showDeleteModal=false;">Yes</button>
+                                <button @click="showDeleteModal=false;">No</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--=============End Modal Delete=============-->
+
         </div><!--End Root -->
 
     <script type="text/javascript" src="js/vue.js"></script>

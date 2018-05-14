@@ -73,3 +73,7 @@ button{
     border:none;
 }
 /*=======End Modal CSS=============*/
+
+table.form input, table.form td{
+    padding:6px;
+}
