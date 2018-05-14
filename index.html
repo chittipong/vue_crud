@@ -30,43 +30,44 @@
                     </tr>
                 </table>
             </div>
-        </div>
+        
 
-        <!--=============Modal=============-->
-        <div class="modal" id="addModal" v-if="showAddModal">
-            <div class="modalContainer">
-                <div class="modalHeader">
-                    Add New User
-                    <button class="fright close" @click="showAddModal=false;">X</button>
+                <!--=============Modal=============-->
+                <div class="modal" id="addModal" v-if="showAddModal">
+                    <div class="modalContainer">
+                        <div class="modalHeader">
+                            Add New User
+                            <button class="fright close" @click="showAddModal=false;">X</button>
+                        </div>
+                        <div class="modalContent">
+                            <table class="form">
+                                <tr>
+                                    <th>Username</th>
+                                    <th> : </th>
+                                    <td><input type="text" name=""></td>
+                                </tr>
+
+                                <tr>
+                                        <th>Email</th>
+                                        <th> : </th>
+                                        <td><input type="text" name=""></td>
+                                </tr>
+
+                                <tr>
+                                        <th>Mobile</th>
+                                        <th> : </th>
+                                        <td><input type="text" name=""></td>
+                                </tr>
+                                <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <td><button>Submit</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-                <div class="modalContent">
-                    <table class="form">
-                        <tr>
-                            <th>Username</th>
-                            <th> : </th>
-                            <td><input type="text" name=""></td>
-                        </tr>
-
-                        <tr>
-                                <th>Email</th>
-                                <th> : </th>
-                                <td><input type="text" name=""></td>
-                        </tr>
-
-                        <tr>
-                                <th>Mobile</th>
-                                <th> : </th>
-                                <td><input type="text" name=""></td>
-                        </tr>
-                        <tr>
-                                <th></th>
-                                <th></th>
-                                <td><button>Submit</button></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
+        </div><!--End Root -->
 
     <script type="text/javascript" src="js/vue.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
