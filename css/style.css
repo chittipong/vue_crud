@@ -77,3 +77,17 @@ button{
 table.form input, table.form td{
     padding:6px;
 }
+p.successMessage{
+    background:#D8EFC2;
+    color:#09713;
+    border-left:5px solid #097133;
+    padding:9px;
+    margin:22px 0;
+}
+p.errorMessage{
+    background:#EFCBC2;
+    color:#D71517;
+    border-left:5px solid #DA1527;
+    padding:9px;
+    margin:22px 0;
+}

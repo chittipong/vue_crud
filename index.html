@@ -11,6 +11,12 @@
                 <button class="fright addNew" @click="showAddModal=true;">Add New</button>
                 <div class="clear"></div>
                 <hr>
+                <p class="errorMessage" v-if="errorMessage">
+                    {{errorMessage}}
+                </p>
+                <p class="successMessage" v-if="successMessage">
+                    {{successMessage}}
+                </p>
                 <table class="list">
                     <tr>
                         <th>ID</th>
@@ -20,11 +26,11 @@
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>aaaaaa</td>
-                        <td>bbbbbb</td>
-                        <td>dddddd</td>
+                    <tr v-for="user in users">
+                        <td>{{user.id}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.mobile}}</td>
                         <td><button @click="showEditModal=true;">Edit</button></td>
                         <td><button @click="showDeleteModal=true;">Delete</button></td>
                     </tr>
@@ -44,24 +50,24 @@
                                 <tr>
                                     <th>Username</th>
                                     <th> : </th>
-                                    <td><input type="text" name=""></td>
+                                    <td><input type="text" name="" v-model="newUser.username"></td>
                                 </tr>
 
                                 <tr>
                                         <th>Email</th>
                                         <th> : </th>
-                                        <td><input type="text" name=""></td>
+                                        <td><input type="text" name="" v-model="newUser.email"></td>
                                 </tr>
 
                                 <tr>
                                         <th>Mobile</th>
                                         <th> : </th>
-                                        <td><input type="text" name=""></td>
+                                        <td><input type="text" name="" v-model="newUser.mobile"></td>
                                 </tr>
                                 <tr>
                                         <th></th>
                                         <th></th>
-                                        <td><button @click="showAddModal=false;">Save</button></td>
+                                        <td><button @click="showAddModal=false; saveUser();">Save</button></td>
                                 </tr>
                             </table>
                         </div>
@@ -127,6 +133,7 @@
 
         </div><!--End Root -->
 
+    <script type="text/javascript" src="js/axios.js"></script>
     <script type="text/javascript" src="js/vue.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     </body>
