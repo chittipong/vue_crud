@@ -7,7 +7,8 @@ var app = new Vue({
         errorMessage:"",
         successMessage:"",
         users:[],
-        newUser:{username:"",email:"",mobile:""}
+        newUser:{username:"",email:"",mobile:""},
+        clickedUser:{}
     },
     mounted:function(){
         console.log("mounted");
@@ -41,6 +42,43 @@ var app = new Vue({
                 }
             });
         },
+        updateUser:function(){
+            //console.log(app.newUser);
+            var formData=app.toFormData(app.clickedUser);
+
+            axios.post("http://localhost/vue_crud/api.php?action=update", formData)
+            .then(function(response){
+                //console.log(response);
+                app.clickedUser={}
+                if(response.data.error){
+                    app.errorMessage=response.data.message;
+                }else{
+                    app.successMessage=response.data.message;                    
+                    app.getAllUsers();
+                }
+            });
+        },
+        deleteUser:function(){
+            //console.log(app.newUser);
+            var formData=app.toFormData(app.clickedUser);
+
+            axios.post("http://localhost/vue_crud/api.php?action=delete", formData)
+            .then(function(response){
+                //console.log(response);
+                app.clickedUser={}
+                if(response.data.error){
+                    app.errorMessage=response.data.message;
+                }else{
+                    app.successMessage=response.data.message;                    
+                    app.getAllUsers();
+                }
+            });
+        },
+
+        selectUser(user){
+            app.clickedUser=user;
+        },
+
         toFormData:function(obj){
             var form_data=new FormData();
             for(var key in obj){
